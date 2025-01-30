@@ -1,0 +1,7 @@
+# Ignore environment
+environment/
+
+# Ignore Folder
+__pycach__/
+
+nlp.py
