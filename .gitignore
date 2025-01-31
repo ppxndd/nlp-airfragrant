@@ -1,7 +1,11 @@
 # Ignore environment
+env/
 environment/
 
 # Ignore Folder
-__pycach__/
+__pycache__/
 
 nlp.py
+
+*.csv
+test_model.py
