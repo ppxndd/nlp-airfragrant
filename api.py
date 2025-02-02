@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 import joblib
 from pydantic import BaseModel
 
@@ -13,6 +14,13 @@ vectorizer = joblib.load('vectorizer.pkl')
 encoder = joblib.load('encoder.pkl')
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # หรือใส่ URL ที่อนุญาตได้
+    allow_credentials=True,
+    allow_methods=["*"],  # อนุญาตทุก HTTP method (GET, POST, OPTIONS, etc.)
+    allow_headers=["*"],  # อนุญาตทุก headers
+)
 
 @app.get('/test')
 def test():
