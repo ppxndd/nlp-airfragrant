@@ -9,7 +9,7 @@ class Sentence(BaseModel):
 
 
 # โหลดโมเดลที่บันทึกไว้
-model = joblib.load('naive_bayes_model.pkl')
+model = joblib.load('logistic_model.pkl')
 vectorizer = joblib.load('vectorizer.pkl')
 encoder = joblib.load('encoder.pkl')
 
