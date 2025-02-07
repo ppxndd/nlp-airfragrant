@@ -18,12 +18,6 @@ X_train, X_test, y_train, y_test = train_test_split(X, Y, test_size=0.2, random_
 model = MultinomialNB()
 model.fit(X_train, y_train)
 
-# บันทึกโมเดล
-joblib.dump(model, 'rf_model.pkl')
-
-# บันทึก vectorizer และ encoder เพื่อใช้งานในอนาคต
-joblib.dump(vectorizer, 'vectorizer.pkl')
-joblib.dump(encoder, 'encoder.pkl')
 
 # y_pred = model.predict(X_test)
 
@@ -32,3 +26,9 @@ joblib.dump(encoder, 'encoder.pkl')
 
 # # แสดงผลลัพธ์
 # print(f"Accuracy: {accuracy * 100:.2f}%")
+
+joblib.dump(model, 'naive_bayes_model.pkl')
+
+# บันทึก vectorizer และ encoder เพื่อใช้งานในอนาคต
+joblib.dump(vectorizer, 'vectorizer.pkl')
+joblib.dump(encoder, 'encoder.pkl')
