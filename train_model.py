@@ -33,11 +33,11 @@ import numpy as np
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Accuracy: {accuracy}")
 
-# # ระบุ labels ให้ตรงกับคลาสที่มีใน y_test
-# labels = np.unique(y_test)
+# ระบุ labels ให้ตรงกับคลาสที่มีใน y_test
+labels = np.unique(y_test)
 
-# # รายงานผลการทดสอบที่ละเอียดขึ้น
-# print(classification_report(y_test, y_pred, labels=labels, target_names=encoder.classes_))
+# รายงานผลการทดสอบที่ละเอียดขึ้น
+print(classification_report(y_test, y_pred, labels=labels, target_names=encoder.classes_))
 
 # # บันทึกโมเดล
 # joblib.dump(model, 'rf_model.pkl')

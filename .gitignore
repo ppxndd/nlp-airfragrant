@@ -4,6 +4,7 @@ environment/
 
 # Ignore Folder
 __pycache__/
+testNewModel/
 
 nlp.py
 
