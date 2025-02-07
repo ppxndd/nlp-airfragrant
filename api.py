@@ -77,8 +77,7 @@ def test():
 
 @app.post("/predict_feeling")
 async def predict_feeling(sentence:Sentence):
-    text = [sentence.sentence]
-    new_sentence = "เครียด"
+    text = sentence.sentence
     # 🔹 คำนวณความยาวประโยค
     new_sentence_length = len(text)
     # 🔹 แปลงข้อความเป็นตัวเลขด้วย TF-IDF
@@ -86,7 +85,7 @@ async def predict_feeling(sentence:Sentence):
     # 🔹 แปลง `sentence_length` ให้เป็น Standardized Feature
     new_sentence_length_scaled = scaler.transform([[new_sentence_length]])
     #  🔹 แปลง `sentiment` ของประโยค (ในที่นี้ให้สมมติว่าเป็น 'positive')
-    new_sentence_sentiment = encoder_sentiment.transform([getSentiment(new_sentence)]).reshape(-1, 1)
+    new_sentence_sentiment = encoder_sentiment.transform([getSentiment(text)]).reshape(-1, 1)
     # 🔹 รวมฟีเจอร์ทั้ง 3 (TF-IDF + sentence_length + sentiment)
     new_sentence_features = hstack((new_sentence_tfidf, new_sentence_length_scaled, new_sentence_sentiment))
     # 🔹 ทำนายผล
@@ -94,4 +93,11 @@ async def predict_feeling(sentence:Sentence):
 
     # 🔹 แสดงผลการทำนาย
     predicted_category = encoder.inverse_transform(predicted_label)
-    return predicted_category[0]
+    feeling = None
+    if (predicted_label[0] == 'c'):
+        feeling = 'วาตะ'
+    elif (predicted_label[0] == 's'):
+        feeling = 'เสมหะ'
+    else:
+        feeling = 'ปิตตะ'
+    return {"result": feeling, "result_message": f"Prediction for '{text[0]}': {predicted_category[0]}"}
