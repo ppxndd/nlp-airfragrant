@@ -94,10 +94,10 @@ async def predict_feeling(sentence:Sentence):
     # 🔹 แสดงผลการทำนาย
     predicted_category = encoder.inverse_transform(predicted_label)
     feeling = None
-    if (predicted_label[0] == 'c'):
+    if (predicted_category[0] == 'c'):
         feeling = 'วาตะ'
-    elif (predicted_label[0] == 's'):
+    elif (predicted_category[0] == 's'):
         feeling = 'เสมหะ'
     else:
         feeling = 'ปิตตะ'
-    return {"result": feeling, "result_message": f"Prediction for '{text[0]}': {predicted_category[0]}"}
+    return {"result": feeling, "result_message": f"Prediction for '{text}': {predicted_category[0]}"}
