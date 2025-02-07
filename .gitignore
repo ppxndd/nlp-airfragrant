@@ -2,6 +2,15 @@
 environment/
 
 # Ignore Folder
-__pycach__/
+__pycache__/
+testNewModel/
 
 nlp.py
+test_model.py
+sentence.csv
+sentiment_analysis.csv
+sentiment_analysis.csv
+sentence.csv
+test_model.py
+sentiment_analysis.csv
+sentence.csv
