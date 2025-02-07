@@ -10,7 +10,9 @@ from scipy.sparse import hstack
 
 class Sentence(BaseModel):
     sentence: str
-
+def my_tokenizer(text):
+    return text.split(' ')
+print(my_tokenizer)
 
 # โหลดโมเดลที่บันทึกไว้
 # model = joblib.load('rf_model.pkl')
@@ -21,8 +23,7 @@ thai_stopwords = list(thai_stopwords())
 model = joblib.load('model.pkl')
 # โหลด vectorizer
 vectorizer = joblib.load('vectorizer.pkl')
-def my_tokenizer(text):
-    return text.split(' ')
+
 cvec = joblib.load('cvec.pkl')
 
 # โหลด scaler
