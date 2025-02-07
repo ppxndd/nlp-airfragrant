@@ -19,16 +19,16 @@ model = MultinomialNB()
 model.fit(X_train, y_train)
 
 
-# y_pred = model.predict(X_test)
+y_pred = model.predict(X_test)
 
-# # คำนวณความแม่นยำ
-# accuracy = accuracy_score(y_test, y_pred)
+# คำนวณความแม่นยำ
+accuracy = accuracy_score(y_test, y_pred)
 
-# # แสดงผลลัพธ์
-# print(f"Accuracy: {accuracy * 100:.2f}%")
+# แสดงผลลัพธ์
+print(f"Accuracy: {accuracy * 100:.2f}%")
 
-joblib.dump(model, 'naive_bayes_model.pkl')
+# joblib.dump(model, 'naive_bayes_model.pkl')
 
-# บันทึก vectorizer และ encoder เพื่อใช้งานในอนาคต
-joblib.dump(vectorizer, 'vectorizer.pkl')
-joblib.dump(encoder, 'encoder.pkl')
+# # บันทึก vectorizer และ encoder เพื่อใช้งานในอนาคต
+# joblib.dump(vectorizer, 'vectorizer.pkl')
+# joblib.dump(encoder, 'encoder.pkl')
